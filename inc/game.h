@@ -9,9 +9,7 @@ class Game {
 public:
     Game();
     bool getRunning();
-    void input();
-    void mouseMotion(SDL_Event* event);
-    void keyDown(SDL_Event* event);
+    void events();
     void logic();
     void update();
     void render();

@@ -7,15 +7,14 @@
 class Menu {
 public:
     Menu(SDL_Renderer* renderer);
+    enum gameStatus {menu, play, exit} status;
     void setDisplay(bool b);
     bool getDisplay();
-    void setItem(int x, int y);
-    char getItem();
+    void setStatus(int x, int y); 
     void render();
 private:
     SDL_Renderer* renderer;
     bool display;
-    char itemSelect;
     SDL_Rect playRect;
     SDL_Rect exitRect;
     SDL_Rect cursorRect;

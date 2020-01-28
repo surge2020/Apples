@@ -17,7 +17,7 @@ void EventHandler::input()
             mouseMotion(&event);
             break;
         case SDL_MOUSEBUTTONDOWN:
-            keyDown(&event);          
+            buttonDown(&event);
         default:
             break;
         }
@@ -27,15 +27,18 @@ void EventHandler::input()
 void EventHandler::mouseMotion(SDL_Event* event)
 {
     if (menu->getDisplay()) {
-        menu->setItem(event->motion.x, event->motion.y);
+        menu->setStatus(event->motion.x, event->motion.y);
     } 
 }
 
-void EventHandler::keyDown(SDL_Event* event)
+void EventHandler::buttonDown(SDL_Event* event)
 {
     if (menu->getDisplay()) {
-        if (menu->getItem() == 'e') {
-             *running = false;
+        if (menu->status == Menu::exit) {
+            *running = false;
+        }
+        else if (menu->status == Menu::play) {
+            menu->setDisplay(false);
         }
     } 
 }

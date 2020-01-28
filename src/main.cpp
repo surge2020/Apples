@@ -4,7 +4,7 @@ int main()
 {
     Game game;
     while (game.getRunning()) {
-        game.input();
+        game.events();
         game.logic();
         game.update();
         game.render();

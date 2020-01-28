@@ -9,7 +9,7 @@ public:
     EventHandler(Menu* menu, bool* running);
     void input();
     void mouseMotion(SDL_Event* event);
-    void keyDown(SDL_Event* event);
+    void buttonDown(SDL_Event* event);
 private:
     Menu* menu;
     bool* running;

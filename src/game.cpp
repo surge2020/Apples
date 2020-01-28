@@ -18,7 +18,7 @@ bool Game::getRunning()
     return running;
 }
 
-void Game::input()
+void Game::events()
 {
     eventHandler->input();
 }

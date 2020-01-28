@@ -6,9 +6,11 @@ Game::Game()
         "Apples",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
-        640, 480, 0);
+        800, 600, 0);
     renderer = SDL_CreateRenderer(window, -1, 0);
-    running = true;
+    running = true;   
+    menu = new Menu(renderer);
+    eventHandler = new EventHandler(menu, &running);
 }
 
 bool Game::getRunning()
@@ -18,16 +20,7 @@ bool Game::getRunning()
 
 void Game::input()
 {
-    SDL_Event event;
-    while (SDL_PollEvent(&event)) {
-        switch (event.type) {
-        case SDL_QUIT:
-            running = false;
-            break;
-        default:
-            break;
-        }
-    }
+    eventHandler->input();
 }
 
 void Game::logic()
@@ -44,6 +37,9 @@ void Game::render()
 {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
+    if (menu->getDisplay()) {
+        menu->render();
+    }
     SDL_RenderPresent(renderer);
 }
 

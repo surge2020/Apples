@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include "menu.h"
 #include "eventHandler.h"
+#include "renderHandler.h"
 
 class Game {
 public:
@@ -17,9 +18,10 @@ public:
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;
-    bool running;  
+    bool running;
     Menu* menu;
     EventHandler* eventHandler;
+    RenderHandler* renderHandler;
 };
 
 #endif

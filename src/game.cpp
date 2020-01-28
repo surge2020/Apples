@@ -11,6 +11,7 @@ Game::Game()
     running = true;   
     menu = new Menu(renderer);
     eventHandler = new EventHandler(menu, &running);
+    renderHandler = new RenderHandler(renderer, menu);
 }
 
 bool Game::getRunning()
@@ -35,12 +36,7 @@ void Game::update()
 
 void Game::render()
 {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
-    if (menu->getDisplay()) {
-        menu->render();
-    }
-    SDL_RenderPresent(renderer);
+    renderHandler->render();
 }
 
 void Game::clean()

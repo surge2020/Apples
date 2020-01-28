@@ -7,7 +7,7 @@
 class Menu {
 public:
     Menu(SDL_Renderer* renderer);
-    enum gameStatus {menu, play, exit} status;
+    enum menuStatus {menu, play, exit} status;
     void setDisplay(bool b);
     bool getDisplay();
     void setStatus(int x, int y); 

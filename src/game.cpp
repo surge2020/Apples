@@ -8,10 +8,12 @@ Game::Game()
         SDL_WINDOWPOS_UNDEFINED,
         800, 600, 0);
     renderer = SDL_CreateRenderer(window, -1, 0);
-    running = true;   
+    running = true;
+    state = new gameState();
+    *state = mainMenu;
     menu = new Menu(renderer);
-    eventHandler = new EventHandler(menu, &running);
-    renderHandler = new RenderHandler(renderer, menu);
+    eventHandler = new EventHandler(menu, &running, state);
+    renderHandler = new RenderHandler(renderer, menu, state);
 }
 
 bool Game::getRunning()

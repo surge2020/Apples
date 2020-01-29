@@ -5,6 +5,7 @@
 #include "menu.h"
 #include "eventHandler.h"
 #include "renderHandler.h"
+#include "gameState.h"
 
 class Game {
 public:
@@ -19,6 +20,7 @@ private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     bool running;
+    gameState* state;
     Menu* menu;
     EventHandler* eventHandler;
     RenderHandler* renderHandler;

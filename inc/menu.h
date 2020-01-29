@@ -7,10 +7,10 @@
 class Menu {
 public:
     Menu(SDL_Renderer* renderer);
-    enum menuStatus {menu, play, exit} status;
+    enum menuSelection {none, play, exit} selection;
     void setDisplay(bool b);
     bool getDisplay();
-    void setStatus(int x, int y); 
+    void select(int x, int y); 
     void render();
 private:
     SDL_Renderer* renderer;

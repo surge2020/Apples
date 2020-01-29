@@ -4,7 +4,7 @@ Menu::Menu(SDL_Renderer* renderer)
 {
     this->renderer = renderer;
     display = true;
-    status = menu;
+    selection = none;
     playRect = {250, 250, 300, 100};
     exitRect = {250, 375, 300, 100};
 }
@@ -19,29 +19,29 @@ bool Menu::getDisplay()
     return display;
 }
 
-void Menu::setStatus(int x, int y)
+void Menu::select(int x, int y)
 {
     cursorRect = {x, y, 20, 20};
     if (SDL_HasIntersection(&cursorRect, &playRect)) {
-        status = play;
+        selection = play;
     }
     else if (SDL_HasIntersection(&cursorRect, &exitRect)) {
-        status = exit;
+        selection = exit;
     }
     else {
-        status = menu;
+        selection = none;
     }
 }
 
 void Menu::render()
 {
-    if (status == menu) {
+    if (selection == none) {
         surface = IMG_Load("res/menu.png");  
     }
-    else if (status == play) {
+    else if (selection == play) {
         surface = IMG_Load("res/menuPlay.png");
     }
-    else if (status == exit) {
+    else if (selection == exit) {
         surface = IMG_Load("res/menuExit.png");
     }
     texture = SDL_CreateTextureFromSurface(renderer, surface);

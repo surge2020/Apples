@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include "menu.h"
+#include "panel.h"
 #include "eventHandler.h"
 #include "renderHandler.h"
 #include "gameState.h"
@@ -22,6 +23,7 @@ private:
     bool running;
     gameState* state;
     Menu* menu;
+    Panel* panel;
     EventHandler* eventHandler;
     RenderHandler* renderHandler;
 };

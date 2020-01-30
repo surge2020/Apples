@@ -8,13 +8,10 @@ class Menu {
 public:
     Menu(SDL_Renderer* renderer);
     enum menuSelection {none, play, exit} selection;
-    void setDisplay(bool b);
-    bool getDisplay();
     void select(int x, int y); 
     void render();
 private:
     SDL_Renderer* renderer;
-    bool display;
     SDL_Rect playRect;
     SDL_Rect exitRect;
     SDL_Rect cursorRect;

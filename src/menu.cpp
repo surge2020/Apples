@@ -3,20 +3,9 @@
 Menu::Menu(SDL_Renderer* renderer)
 {
     this->renderer = renderer;
-    display = true;
     selection = none;
     playRect = {250, 250, 300, 100};
     exitRect = {250, 375, 300, 100};
-}
-
-void Menu::setDisplay(bool b)
-{
-    display = b;
-}
-
-bool Menu::getDisplay()
-{
-    return display;
 }
 
 void Menu::select(int x, int y)

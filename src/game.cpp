@@ -12,8 +12,9 @@ Game::Game()
     state = new gameState(mainMenu);
     menu = new Menu(renderer);
     panel = new Panel(renderer);
+    player = new Player(renderer);
     eventHandler = new EventHandler(menu, &running, state, panel);
-    renderHandler = new RenderHandler(renderer, menu, state, panel);
+    renderHandler = new RenderHandler(renderer, menu, state, panel, player);
 }
 
 bool Game::getRunning()

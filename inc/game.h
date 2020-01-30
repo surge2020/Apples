@@ -7,6 +7,7 @@
 #include "eventHandler.h"
 #include "renderHandler.h"
 #include "gameState.h"
+#include "player.h"
 
 class Game {
 public:
@@ -24,6 +25,7 @@ private:
     gameState* state;
     Menu* menu;
     Panel* panel;
+    Player* player;
     EventHandler* eventHandler;
     RenderHandler* renderHandler;
 };

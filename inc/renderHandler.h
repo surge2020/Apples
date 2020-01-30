@@ -6,10 +6,13 @@
 #include "gameState.h"
 #include "background.h"
 #include "panel.h"
+#include "player.h"
 
 class RenderHandler {
 public:
-    RenderHandler(SDL_Renderer* renderer, Menu* menu, gameState* state, Panel* panel);
+    RenderHandler(
+        SDL_Renderer* renderer, Menu* menu, 
+        gameState* state, Panel* panel, Player* player);
     void render();
 private:
     SDL_Renderer* renderer;
@@ -17,6 +20,7 @@ private:
     Panel* panel;
     gameState* state;
     Background* background;
+    Player* player;
 };
 
 #endif
